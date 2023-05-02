@@ -69,16 +69,11 @@
 
 
         if(empty($name_err) && empty($surname_err) && empty($password_err) && empty($phone_err) && empty($email_err) && empty($brithday_err)){
-            $register = new Kayıt();
+            $register = new kayit();
 
             $register->addUser($name,$surname,$password,$phone,$email,$brithday);
             header('location: index.php');
-        }else{
-            header('location: index.php');
         }
-        // if($register->addUser($name,$surname,$brithday,$email,$phone,$password)){
-        //     header('location: index.php');
-        // }
     }
 
 
@@ -104,7 +99,7 @@
 
                                                 <div class="mb-3">
                                                     <label for="name">İsim</label>
-                                                    <input type="text" id="name" name="name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid':'' ?>" value="<?php echo $name?>" />
+                                                    <input type="text" id="name" name="name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid':'' ?>"/>
                                                     <span class="invalid-feedback"><?php echo $name_err ?></span>
                                                 </div>
 
@@ -113,7 +108,7 @@
 
                                                 <div class="mb-3">
                                                     <label for="surname">Soyisim</label>
-                                                    <input type="text" id="surname" name="surname" class="form-control <?php echo (!empty($surname_err)) ? 'is-invalid':'' ?>" value="<?php echo $surname?>"/>
+                                                    <input type="text" id="surname" name="surname" class="form-control <?php echo (!empty($surname_err)) ? 'is-invalid':'' ?>"/>
                                                     <span class="invalid-feedback"><?php echo $surname_err ?></span>
                                                 </div>
 
@@ -125,7 +120,7 @@
 
                                                 <div class="mb-3 datepicker w-100">
                                                     <label for="brithday">Doğum Tarihi</label>
-                                                    <input type="text" id="brithday" name="brithday" class="form-control <?php echo (!empty($brithday_err)) ? 'is-invalid':'' ?>" value="<?php echo $brithday?>"/>
+                                                    <input type="text" id="brithday" name="brithday" class="form-control <?php echo (!empty($brithday_err)) ? 'is-invalid':'' ?>"/>
                                                     <span class="invalid-feedback"><?php echo $brithday_err ?></span>
                                                 </div>
 
@@ -137,7 +132,7 @@
 
                                                 <label for="email">Email</label>
                                                 <div class="mb-3">
-                                                    <input type="email" id="email" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid':'' ?>" value="<?php echo $email?>" />
+                                                    <input type="email" id="email" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid':'' ?>"/>
                                                     <span class="invalid-feedback"><?php echo $email_err ?></span>
                                                 </div>
 
@@ -146,7 +141,7 @@
 
                                                 <div class="mb-3">
                                                     <label for="phone">Telefon Numarası</label>
-                                                    <input type="tel" id="phone" name="phone" class="form-control <?php echo (!empty($phone_err)) ? 'is-invalid':'' ?>" value="<?php echo $phone?>" />
+                                                    <input type="tel" id="phone" name="phone" class="form-control <?php echo (!empty($phone_err)) ? 'is-invalid':'' ?>"/>
                                                     <span class="invalid-feedback"><?php echo $phone_err ?></span>
                                                 </div>
 

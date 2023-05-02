@@ -1,9 +1,10 @@
 <?php
+    require_once "baglanti.php";
 
-    class kayıt extends db{
+    class kayit extends Db{
 
         public function addUser($name,$surname,$password,$phone,$email,$brithday){
-            $sql = "INSERT INTO users (name,surname,password,phone,email,brithday) VALUES (:name,:surname,:password,:phone,:email,:brithday)";
+            $sql = "INSERT INTO users (name,surname,password,phone,email,brithday) VALUES (:name, :surname, :password, :phone, :email, :brithday)";
             $stmt = $this->baglan()->prepare($sql);
             return $stmt->execute([
                 'name'=>$name,
@@ -14,18 +15,38 @@
                 'brithday'=>$brithday,
             ]);
         }
+
+        public function getUser($email,$password){
+            $sql = "SELECT * FROM users WHERE email=:email AND password=:password";
+            $stmt = $this->baglan()->prepare($sql);
+            $stmt->bindParam(':email',$email);
+            $stmt->bindParam(':password',$password);
+            $stmt->execute();
+            if($stmt->rowCount() > 0){
+                return $stmt;
+            }else{
+                echo "hata: ";
+            }
+            
+
+        }
+
+        public function addFilms($title,$description,$image){
+            $sql = "INSERT INTO filmler(title,description,imageUrl) VALUES (:title,:description,:imageUrl)";
+            $stmt = $this->baglan()->prepare($sql);
+            return $stmt->execute([
+                'title'=>$title,
+                'description'=>$description,
+                'imageUrl'=>$image,
+            ]);
+        }
+
+        public function getFilms(int $filmId){
+            $sql = "SELECT * FROM filmler WHERE id=:id";
+            $stmt = $this->baglan()->prepare($sql);
+            $stmt->execute(['id'=> $filmId]);
+            return $stmt->fetch();
+        }
+
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>

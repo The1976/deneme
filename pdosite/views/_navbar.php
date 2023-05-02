@@ -19,6 +19,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="login.php">Giriş</a></li>
                         <li><a class="dropdown-item" href="register.php">Kayıt Ol</a></li>
+                        <li><a class="dropdown-item" href="filmEkle.php">Film Ekle</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
