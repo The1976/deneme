@@ -15,7 +15,8 @@
                 $key->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
                 return $key;
-            }catch(PDOException $e){
+            }
+                catch(PDOException $e){
                 echo "bağlantı hatası: ".$e->getMessage();
             }
         }
