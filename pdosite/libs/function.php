@@ -41,11 +41,11 @@
             ]);
         }
 
-        public function getFilms(int $filmId){
-            $sql = "SELECT * FROM filmler WHERE id=:id";
+        public function getFilms(){
+            $sql = "SELECT * FROM filmler";
             $stmt = $this->baglan()->prepare($sql);
-            $stmt->execute(['id'=> $filmId]);
-            return $stmt->fetch();
+            $stmt->execute();
+            return $stmt->fetchAll();
         }
 
     }
