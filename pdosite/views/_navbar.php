@@ -20,19 +20,12 @@
                         <li><a class="dropdown-item" href="login.php">Giriş</a></li>
                         <li><a class="dropdown-item" href="register.php">Kayıt Ol</a></li>
                         <li><a class="dropdown-item" href="filmEkle.php">Film Ekle</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex" role="search" action="search.php" method="GET">
+                <input class="form-control me-2" type="search" placeholder="Film Ara" aria-label="Search">
+                <button class="btn btn-outline-success" name="q" type="submit">Search</button>
             </form>
         </div>
     </div>

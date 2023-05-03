@@ -29,9 +29,7 @@
 
         $ekle = new kayit();
 
-        // if($ekle->addFilms($title,$description,$image)){
-        //     header('location: register.php');
-        // }
+
 
         if(empty($title_err) && empty($description_err) && empty($image_err)){
             $Addfilm = new kayit();
