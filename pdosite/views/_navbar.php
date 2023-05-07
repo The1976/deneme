@@ -23,9 +23,9 @@
                     </ul>
                 </li>
             </ul>
-            <form class="d-flex" role="search" action="search.php" method="GET">
-                <input class="form-control me-2" type="search" placeholder="Film Ara" aria-label="Search">
-                <button class="btn btn-outline-success" name="q" type="submit">Search</button>
+            <form class="d-flex" action="search.php" method="POST">
+                <input class="form-control me-2"  name="searchTerm" id="searchTerm" type="text" placeholder="Film Ara" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
     </div>

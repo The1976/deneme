@@ -13,11 +13,13 @@
 
                 $key->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $key->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+                echo "Bağlantı yapıldı";
 
                 return $key;
             }
                 catch(PDOException $e){
                 echo "bağlantı hatası: ".$e->getMessage();
+                exit;
             }
         }
 

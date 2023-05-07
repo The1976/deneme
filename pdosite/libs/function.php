@@ -51,13 +51,12 @@
         public function searchFilm($term){
             $sql = "SELECT * FROM filmler WHERE title LIKE :term";
             $stmt = $this->baglan()->prepare($sql);
-            $stmt->execute([
-                'term'=> '%'.$term.'%'
-            ]);
-            return $stmt;
+            $stmt->bindValue(':term', '%'.$term.'%');
+            if($stmt->rowCount() > 0){
+                return $stmt;
+            }else{
+                false;
+            }
         }
-
-
-
     }
 ?>
