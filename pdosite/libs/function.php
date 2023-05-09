@@ -48,15 +48,18 @@
             return $stmt->fetchAll();
         }
 
-        public function searchFilm($term){
+
+    }
+
+    class search extends Db{
+        
+        public function searchFilms($term) {
             $sql = "SELECT * FROM filmler WHERE title LIKE :term";
             $stmt = $this->baglan()->prepare($sql);
-            $stmt->bindValue(':term', '%'.$term.'%');
-            if($stmt->rowCount() > 0){
-                return $stmt;
-            }else{
-                false;
-            }
+            $stmt->bindParam(':term', $term);
+            $stmt->execute();
+            $results = $stmt->fetchAll();
+            return $results;
         }
     }
 ?>
