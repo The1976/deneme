@@ -41,14 +41,6 @@
             ]);
         }
 
-        public function getFilms(){
-            $sql = "SELECT * FROM filmler";
-            $stmt = $this->baglan()->prepare($sql);
-            $stmt->execute();
-            return $stmt->fetchAll();
-        }
-
-
     }
 
     class search extends Db{
@@ -61,5 +53,15 @@
             $results = $stmt->fetchAll();
             return $results;
         }
+
+        
+        public function getFilms(){
+            $sql = "SELECT * FROM filmler";
+            $stmt = $this->baglan()->prepare($sql);
+            $stmt->execute();
+            $results = $stmt->fetchAll();
+            return $results;
+        }
+
     }
 ?>
