@@ -63,5 +63,13 @@
             return $results;
         }
 
+        public function getCategory(){
+            $sql = "SELECT * FROM categories";
+            $stmt = $this->baglan()->prepare($sql);
+            $stmt->execute();
+            $results = $stmt->fetchAll();
+            return $results;
+        }
+
     }
 ?>
