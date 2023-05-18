@@ -71,5 +71,34 @@
             return $results;
         }
 
+        public function selectFilm($term) {
+            $sql = "SELECT * FROM filmler WHERE id = :id";
+            $stmt = $this->baglan()->prepare($sql);
+            $stmt->bindValue(':id',$term, PDO::PARAM_INT);
+            $stmt->execute();
+            $results = $stmt->fetchAll();
+            return $results;
+        }
+
+        public function addcomment($id,$username,$comment){
+            $sql = "INSERT INTO comments(film_id,username,comment) VALUES (:id,:username,:comment)";
+            $stmt = $this->baglan()->prepare($sql);
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':comment', $comment);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        }
+
+        public function getComments($id){
+            $sql = "SELECT * FROM comments WHERE film_id = :id";
+            $stmt = $this->baglan()->prepare($sql);
+            $stmt->bindValue(':id',$id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            return $result;
+        }
+
+
     }
+
 ?>
