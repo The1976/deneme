@@ -60,7 +60,7 @@ if (isset($_POST["submit"])) {
 </div>
 
 
-<?php include "DENEME.php"; ?>
+<?php include "comments.php"; ?>
 
 
 
