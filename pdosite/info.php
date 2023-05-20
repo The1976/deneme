@@ -10,8 +10,10 @@ if (isset($_POST["submit"])) {
     $input_username = $_POST["username"];
     if (empty(trim($input_username))) {
         $username_err = "Kullanıcı Adınızı Griniz";
-    } elseif (strlen($input_username) > 20) {
+    } elseif (strlen($input_username) > 50) {
         $username_err = "Kullanıcı Adınızı Hatalı Girdiniz";
+    } elseif (preg_match('/[<>]/', $input_username)){
+        $username_err = '<div class="alert alert-danger container mt-2" role="alert">Özel Karakter Kullanmayınız</div>';
     } else {
         $username = $input_username;
     }
@@ -21,7 +23,10 @@ if (isset($_POST["submit"])) {
         $comment_err = "Yorum Giriniz.";
     } elseif (strlen($input_comment) > 254) {
         $comment_err = "255 Karakterden Fazla Yorum Yapamazsınız.";
-    } else {
+    } elseif (preg_match('/[<>]/', $input_comment)){
+        $comment_err = '<div class="alert alert-danger container mt-2" role="alert">Özel Karakter Kullanmayınız</div>';
+    }
+     else {
         $comment = $input_comment;
     }
 
@@ -32,7 +37,7 @@ if (isset($_POST["submit"])) {
         $ekle->addcomment($id,$username, $comment);
         header('location: index.php');
     } else {
-        echo "boşşş";
+        // echo "boşşş";
         print_r($username_err);
         print_r($comment_err);
     }
