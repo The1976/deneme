@@ -1,5 +1,9 @@
 <?php
 
+    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+        header("location: index.php");
+    }
+
     if(isset($_POST["login"])){
 
         $email = $password = "";
@@ -22,7 +26,7 @@
             $loggin = new kayit();
             $loggin->getUser($email,$password);
             if($loggin){
-                header('location: https://google.com');
+                header('location: index.php');
             }else{
                 header('location: https//youtube.com');
             }

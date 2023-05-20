@@ -66,12 +66,12 @@
             }
         }
 
-
+        $token = bin2hex(random_bytes(32));
 
         if(empty($name_err) && empty($surname_err) && empty($password_err) && empty($phone_err) && empty($email_err) && empty($brithday_err)){
             $register = new kayit();
 
-            $register->addUser($name,$surname,$password,$phone,$email,$brithday);
+            $register->addUser($name,$surname,$password,$phone,$email,$brithday,$token);
             header('location: index.php');
         }
     }
@@ -166,6 +166,7 @@
                                         </div>
 
                                         <div class="mt-4 pt-2">
+                                            <input type="hidden" name="xsrf_token" value="<?php echo $token; ?>">
                                             <button type="submit" name="submit" class="btn btn-primary"> Kayıt Ol</button>
                                         </div>
 

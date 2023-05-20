@@ -3,8 +3,8 @@
 
     class kayit extends Db{
 
-        public function addUser($name,$surname,$password,$phone,$email,$brithday){
-            $sql = "INSERT INTO users (name,surname,password,phone,email,brithday) VALUES (:name, :surname, :password, :phone, :email, :brithday)";
+        public function addUser($name,$surname,$password,$phone,$email,$brithday,$token){
+            $sql = "INSERT INTO users (name,surname,password,phone,email,brithday,xsrf_token) VALUES (:name, :surname, :password, :phone, :email, :brithday, :token)";
             $stmt = $this->baglan()->prepare($sql);
             return $stmt->execute([
                 'name'=>$name,
@@ -13,6 +13,7 @@
                 'phone'=>$phone,
                 'email'=>$email,
                 'brithday'=>$brithday,
+                'token'=>$token,
             ]);
         }
 
@@ -23,6 +24,8 @@
             $stmt->bindParam(':password',$password);
             $stmt->execute();
             if($stmt->rowCount() > 0){
+                $_SESSION["loggedin"] = true;
+                $_SESSION["username"] = true;
                 return $stmt;
             }else{
                 echo "hata: ";
