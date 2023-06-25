@@ -79,4 +79,12 @@ if (isset($_POST["submit"])) {
         <div class="mb-3">
             <label for="comment" class="form-label">Yorum</label>
             <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
-            <span class="invalid-feedback
+            <span class="invalid-feedback"><?php echo $comment_err ?></span>
+        </div>
+        <div class="mb-3">
+            <button type="submit" name="submit" class="btn btn-primary">Yorumu Kaydet</button>
+        </div>
+    </form>
+</div>
+
+<?php include "views/_footer.php" ?>
