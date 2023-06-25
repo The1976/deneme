@@ -1,12 +1,7 @@
 <?php include "views/_headers.php" ?>
 
 <?php
-function cleanInput($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
+
 
 if (isset($_POST["submit"])) {
     $id = $_POST["id"];
