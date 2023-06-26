@@ -10,9 +10,9 @@ if (isset($_POST["submit"])) {
 
     $input_username = cleanInput($_POST["username"]);
     if (empty($input_username)) {
-        $username_err = "Kullanıcı Adınızı Giriniz";
+        $username_err = '<div class="alert alert-danger container mt-2" role="alert">Kullanıcı Adınızı Giriniz</div>';
     } elseif (strlen($input_username) > 50) {
-        $username_err = "Kullanıcı Adınızı Hatalı Girdiniz";
+        $username_err = '<div class="alert alert-danger container mt-2" role="alert">Kullanıcı Adınızı Hatalı Girdiniz</div>';
     } elseif (preg_match('/[<>]/', $input_username)){
         $username_err = '<div class="alert alert-danger container mt-2" role="alert">Özel Karakter Kullanmayınız</div>';
     } else {
@@ -23,7 +23,7 @@ if (isset($_POST["submit"])) {
     if (empty($input_comment)) {
         $comment_err = "Yorum Giriniz.";
     } elseif (strlen($input_comment) > 254) {
-        $comment_err = "255 Karakterden Fazla Yorum Yapamazsınız.";
+        $comment_err = '<div class="alert alert-danger container mt-2" role="alert">255 Karakterden Fazla Yorum Yapamazsınız.</div>';
     } elseif (preg_match('/[<>]/', $input_comment)){
         $comment_err = '<div class="alert alert-danger container mt-2" role="alert">Özel Karakter Kullanmayınız</div>';
     } else {
@@ -33,7 +33,7 @@ if (isset($_POST["submit"])) {
     if (empty($username_err) && empty($comment_err)) {
         $ekle = new search();
         $ekle->addcomment($id, $username, $comment);
-        header('location: index.php');
+        //header('location: index.php');
     } else {
         print_r($username_err);
         print_r($comment_err);

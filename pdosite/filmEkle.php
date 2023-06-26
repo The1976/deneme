@@ -69,13 +69,11 @@
 
                         <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">Giriş</button>
 
-                        </div>
                     </form>
                 </div>
             </div>
-        
-        <div class="col-4"></div>
-    </div>
+    </div>        
+    <div class="col-4"></div>
 </div>
 
 
